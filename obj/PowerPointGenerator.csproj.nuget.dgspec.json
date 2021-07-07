@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ceyda-2020-softwareWorld\\projects\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
+    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
   },
   "projects": {
-    "D:\\Ceyda-2020-softwareWorld\\projects\\PowerPointGenerator\\PowerPointGenerator.csproj": {
+    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "projectName": "PowerPointGenerator",
-        "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "packagesPath": "C:\\Users\\fceyd\\.nuget\\packages\\",
-        "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\PowerPointGenerator\\obj\\",
+        "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Azure.CognitiveServices.Search.ImageSearch": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
