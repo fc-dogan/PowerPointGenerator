@@ -13,10 +13,11 @@ namespace PowerPointGenerator.Models
   {
     public string Title { get; set; }
     public string Content { get; set; }
-    private string searchString {get; set;}
+    public string searchString {get; set;}
     public List<string> SearchWords = new List<string> {};
+    public List<ImageModel> ImageList = new List<ImageModel>{};
 
-     public void TitleToSearcList()
+    public void TitleToSearcList()
     {
       // Title = title;
       char[] separators = new char[] { ' ', '.' };
@@ -44,21 +45,19 @@ namespace PowerPointGenerator.Models
             }
         }
 
-      // static void ImagesFromAPI(Dictionary<string, object> response)
-      //   {
-      //     var images = response["value"] as Newtonsoft.Json.Linq.JToken;
-      //     foreach (Newtonsoft.Json.Linq.JToken image in images)
-      //       {
-      //         string thumbnailUrl = image["thumbnailUrl"].ToString();
-      //         string imageUrl = image["contentUrl"].ToString();
-      //         ImageModel newImage = new ImageModel(thumbnailUrl, imageUrl);
-      //         FormModel nModel = new FormModel();
-      //         nModel.nImageList.Add(newImage);
-      //         ImageList.Add(newImage);
-      //         string img = image["thumbnailUrl"].ToString();
-      //         thumbnails.Add(img);
-      //       }
-      //   }
+      public void ImagesFromAPI(Dictionary<string, object> response)
+        {
+          var images = response["value"] as Newtonsoft.Json.Linq.JToken;
+          foreach (Newtonsoft.Json.Linq.JToken image in images)
+            {
+              string thumbnailUrl = image["thumbnailUrl"].ToString();
+              string imageUrl = image["contentUrl"].ToString();
+              ImageModel newImage = new ImageModel(thumbnailUrl, imageUrl);
+              ImageList.Add(newImage);
+              // string img = image["thumbnailUrl"].ToString();
+              // thumbnails.Add(img);
+            }
+        }
 
 
   }

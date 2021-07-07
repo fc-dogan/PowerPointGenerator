@@ -22,11 +22,16 @@ namespace PowerPointGenerator.Controllers
         private const string MKT_PARAMETER = "&mkt="; 
         private static string _clientIdHeader = null;
 
-        public async Task<ActionResult> Index()
+        public IActionResult Index()
         {
-            FormModel newModel = new FormModel();
-            //add search string instead of the example below with instance of form model search string
-            var searchString = "cat";
+            return View();
+        }
+
+         [HttpPost]
+        public async Task<ActionResult> Index(FormModel model)
+        {
+            model.TitleToSearcList();
+            string searchString = model.searchString;
             var client = new HttpClient();
             var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
             queryString += MKT_PARAMETER + "en-us";
@@ -36,21 +41,16 @@ namespace PowerPointGenerator.Controllers
                 Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
             if(response.IsSuccessStatusCode)
             {
-                newModel.PrintImages(searchResponse);
+                model.PrintImages(searchResponse);
             }
-
-            return View();
+            // var imageList = model.Images();
+            return View(model);
         }
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
 
         public IActionResult Privacy()
         {

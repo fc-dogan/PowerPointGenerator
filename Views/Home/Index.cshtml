@@ -2,7 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model FormModel
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @{Html.BeginForm();
+    {
+        <div>
+            Title: <br>
+            @Html.TextAreaFor(model => model.Title)
+        </div>
+        <div>
+            Content: <br>
+            @Html.TextAreaFor(model => model.Content)
+        </div>
+        <div>
+            <input type="submit" value="Create"/>
+        </div>
+    }
+    Html.EndForm();
+
+            
+        <div>
+        Posted Title: <br>
+        @Html.DisplayFor(model => model.Title)
+        </div>
+        <div>
+            Posted Content: <br>
+            @Html.DisplayFor(model => model.Content)
+        </div>
+        <div>
+            Split words: <br>
+            <ol>
+            @for (int i = 0; i < 3; i++)
+            {
+                <li>@Html.DisplayFor(model => model.SearchWords[i])   </li>
+            }
+            </ol>             
+        </div>
+    }
 </div>
