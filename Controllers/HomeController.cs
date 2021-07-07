@@ -42,8 +42,34 @@ namespace PowerPointGenerator.Controllers
             if(response.IsSuccessStatusCode)
             {
                 model.PrintImages(searchResponse);
+                model.ImagesFromAPI(searchResponse);
             }
             // var imageList = model.Images();
+            return View("SelectImage", model);
+        }
+
+        [HttpGet("/selectImage")]
+        public IActionResult SelectImage()
+        {
+         return View();
+        }
+        [HttpPost]
+        public IActionResult SelectImage(FormModel model)
+        {
+            foreach(var img in model.ImageList)
+            {
+                
+                Console.WriteLine("is selected: => " + img.IsSelected);
+                if(img.IsSelected) 
+                {
+                model.AddToSelectedList(img);
+                Console.WriteLine("======== inside of select image controller");
+                }
+                else 
+                {
+                //  Console.WriteLine("//////// not selected////////");
+                }
+            }
             return View(model);
         }
 

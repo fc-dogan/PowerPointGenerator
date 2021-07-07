@@ -1,0 +1,11 @@
+@model FormModel
+
+<div>
+  <p>Select Image page</p>
+  @foreach(var img in Model.ImageList)
+  {
+    <input type="checkbox" name="@img.IsSelected" value="true" >
+      <img id="thumbnails" src="@Url.Content(img.ThumbnailUrl)" alt="image" />
+  }
+  <input id="btnSubmit" type="submit" value="Submit"/>
+</div>

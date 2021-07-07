@@ -47,3 +47,4 @@ D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5.0\PowerPointGenerator.genruntimeconfig.cache
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\bin\Debug\net5.0\App.config
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\bin\Debug\net5.0\PowerPointGenerator.dll.config
+D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Home\SelectImage.cshtml.g.cs
