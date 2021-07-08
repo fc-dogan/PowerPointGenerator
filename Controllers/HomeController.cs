@@ -34,8 +34,6 @@ namespace PowerPointGenerator.Controllers
         {
             List<ImageModel> images = new List<ImageModel>{};
             FormModel model = new FormModel(title, content);
-            Console.WriteLine("title " + title);
-            Console.WriteLine("model search strings " + model.searchString);
             var client = new HttpClient();
             var queryString = QUERY_PARAMETER + Uri.EscapeDataString(model.searchString); 
             queryString += MKT_PARAMETER + "en-us";
@@ -45,10 +43,8 @@ namespace PowerPointGenerator.Controllers
                 Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
             if(response.IsSuccessStatusCode)
             {
-                // model.PrintImages(searchResponse);
                 images = model.ImagesFromAPI(searchResponse);
             }
-            // var imageList = model.Images();
             ViewData["Images"] = images;
            
              return View("SelectImage", model);
@@ -78,7 +74,7 @@ namespace PowerPointGenerator.Controllers
                 slide = slides.AddSlide(i + 1, custLayout);
 
                 objText = slide.Shapes[1].TextFrame.TextRange;
-                objText.Text = FormModel.Title + i ;
+                objText.Text = FormModel.Title;
                 objText.Font.Name = "Arial";
                 objText.Font.Size = 32;
 
@@ -93,10 +89,6 @@ namespace PowerPointGenerator.Controllers
                 Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, 
                 Microsoft.Office.Core.MsoTriState.msoTrue);
 
-            string[] arr = ItemList.Split(",");
-            foreach(var id in arr) {
-                var currentId = id;
-            }
             return Json(ItemList);
         }
 

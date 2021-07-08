@@ -60,8 +60,6 @@ namespace PowerPointGenerator.Models
               string imageUrl = image["contentUrl"].ToString();
               ImageModel newImage = new ImageModel(thumbnailUrl, imageUrl);
               ImageList.Add(newImage);
-              // string img = image["thumbnailUrl"].ToString();
-              // thumbnails.Add(img);
             }
             return ImageList;
         }

@@ -1,22 +1,22 @@
 @model FormModel
 
-<div>
-    <p>Select Image page</p>
+<div >
+    <h2>Select Images for your PowerPoint: </h2>
+    <p><em>Select images that you want to see on your PowerPoint and click the "Create PowerPoint!" button below.</em></p>
     <ul class="list-group" id="ItemList">
       @foreach (var item in (List<ImageModel>)ViewData["Images"])
       { 
-        <li class="list-group-item">
+        <li class="list-group-item col-sm-4">
           <div class="checkbox">
             <input type="checkbox" id="Check_@item.Id" checked="@item.IsSelected" name="@item.ImageUrl">
-            <img id="thumbnails_@item.Id" src="@Url.Content(item.ThumbnailUrl)" alt="image" />
+            <img class="img-responsive" id="thumbnails_@item.Id" src="@Url.Content(item.ThumbnailUrl)" alt="image" />
           </div>
         </li>
       }
       <li class="list-group-item">
-        <a class="btn btn-success" onclick="SaveList()">Select Images</a>
+        <a class="btn btn-success" onclick="SaveList()">Create PowerPoint!</a>
       </li>
     </ul>
-    }
 
 
 <script>
@@ -44,7 +44,7 @@
         type: "POST",
         data: { ItemList: commaSeparatedIds, dataList: arrList },
         success: function(response) {
-          alert(response);
+          console.log(response);
         }
       })
     }
