@@ -1,11 +1,73 @@
 @model FormModel
 
 <div>
-  <p>Select Image page</p>
-  @foreach(var img in Model.ImageList)
-  {
-    <input type="checkbox" name="@img.IsSelected" value="true" >
-      <img id="thumbnails" src="@Url.Content(img.ThumbnailUrl)" alt="image" />
+    <p>Select Image page</p>
+    <ul class="list-group" id="ItemList">
+      @foreach (var item in (List<ImageModel>)ViewData["Images"])
+      { 
+        <li class="list-group-item">
+          <div class="checkbox">
+            <input type="checkbox" id="Check_@item.Id" checked="@item.IsSelected" name="@item.ImageUrl">
+            <img id="thumbnails_@item.Id" src="@Url.Content(item.ThumbnailUrl)" alt="image" />
+          </div>
+        </li>
+      }
+      <li class="list-group-item">
+        <a class="btn btn-success" onclick="SaveList()">Select Images</a>
+      </li>
+    </ul>
+      
+      
+    }
+    @* @for(var i = 0; i < Model.ImageList.Count; i++)
+    {
+      @Html.CheckBoxFor(model => model.ImageList[i].IsSelected) *@
+      @* <input type="checkbox" name="@img.IsSelected" value="true" > *@
+        @* <img id="thumbnails" src="@Url.Content(Model.ImageList[i].ThumbnailUrl)" alt="image" /> *@
+    }
+    @* <input id="btnSubmit" type="submit" value="Submit"/> *@
+
   }
-  <input id="btnSubmit" type="submit" value="Submit"/>
 </div>
+  @* <div>
+    <ul>
+      @for(var i = 0; i < Model.ImageList.Count; i++)
+      {
+        <p>aaa</p>
+        Console.WriteLine(Model.ImageList[i].IsSelected);
+      <li>@Html.DisplayFor(model => model.ImageList[i].IsSelected)</li> 
+      }
+  </ul>
+</div> *@
+
+<script>
+  var SaveList = function() {
+    var arrItem = [];
+    var arrList = [];
+    var commaSeparatedIds = "";
+    $("#ItemList li input[type=checkbox]").each(function(index, val) {
+      @* debugger *@
+      var imgData = $(val).attr("name")
+      var checkId = $(val).attr("Id");
+      var arr = checkId.split("_");
+      var currentCheckboxId = arr[1];
+      var isChecked = $("#" + checkId).is(":checked", true);
+      if(isChecked) {
+        arrItem.push(currentCheckboxId);
+        arrList.push(imgData);
+      }
+    })
+    if(arrItem.length != 0){
+      @* debugger *@
+      commaSeparatedIds = arrItem.toString();
+      $.ajax({
+        url:"/Home/SelectImage",
+        type: "POST",
+        data: { ItemList: commaSeparatedIds, dataList: arrList },
+        success: function(response) {
+          alert(response);
+        }
+      })
+    }
+  }
+</script>

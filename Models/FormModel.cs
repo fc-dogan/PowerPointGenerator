@@ -50,7 +50,7 @@ namespace PowerPointGenerator.Models
             }
         }
 
-      public void ImagesFromAPI(Dictionary<string, object> response)
+      public List<ImageModel> ImagesFromAPI(Dictionary<string, object> response)
         {
           var images = response["value"] as Newtonsoft.Json.Linq.JToken;
           foreach (Newtonsoft.Json.Linq.JToken image in images)
@@ -62,6 +62,7 @@ namespace PowerPointGenerator.Models
               // string img = image["thumbnailUrl"].ToString();
               // thumbnails.Add(img);
             }
+            return ImageList;
         }
 
 

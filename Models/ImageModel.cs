@@ -13,15 +13,23 @@ namespace PowerPointGenerator.Models
   {
     public string ThumbnailUrl {get; set;}
     public string ImageUrl { get; set; }
-    public bool IsSelected { get; set; } = false;
-    // public static List<ImageModel> ImageList = new List<ImageModel>{};
+    public bool IsSelected { get; set; }
+    public int Id {get; set;} 
+     public static int CurrentId {get; set;} = 0;
+    public static List<ImageModel> ImageList = new List<ImageModel>{};
 
     public ImageModel(string thumbnailUrl, string imageUrl)
     {
       ThumbnailUrl = thumbnailUrl;
       ImageUrl = imageUrl;
-      // ImageList.Add(this);
+      IncrementId();
+      Id = CurrentId;
+      ImageList.Add(this);
     }
+    public static void IncrementId()
+    {
+      CurrentId ++;
+    }   
 
   }
 }

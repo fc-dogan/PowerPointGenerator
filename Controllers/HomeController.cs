@@ -27,9 +27,10 @@ namespace PowerPointGenerator.Controllers
             return View();
         }
 
-         [HttpPost]
+        [HttpPost]
         public async Task<ActionResult> Index(FormModel model)
         {
+            List<ImageModel> images = new List<ImageModel>{};
             model.TitleToSearcList();
             string searchString = model.searchString;
             var client = new HttpClient();
@@ -42,35 +43,45 @@ namespace PowerPointGenerator.Controllers
             if(response.IsSuccessStatusCode)
             {
                 model.PrintImages(searchResponse);
-                model.ImagesFromAPI(searchResponse);
+                images = model.ImagesFromAPI(searchResponse);
             }
             // var imageList = model.Images();
+            ViewData["Images"] = images;
             return View("SelectImage", model);
         }
 
-        [HttpGet("/selectImage")]
+        [HttpGet]
         public IActionResult SelectImage()
         {
          return View();
         }
         [HttpPost]
-        public IActionResult SelectImage(FormModel model)
+        public JsonResult SelectImage(string ItemList, string[] dataList)
         {
-            foreach(var img in model.ImageList)
-            {
-                
-                Console.WriteLine("is selected: => " + img.IsSelected);
-                if(img.IsSelected) 
-                {
-                model.AddToSelectedList(img);
-                Console.WriteLine("======== inside of select image controller");
-                }
-                else 
-                {
-                //  Console.WriteLine("//////// not selected////////");
-                }
+            Console.WriteLine(ItemList);
+            Console.WriteLine(dataList[0]);
+            string[] arr = ItemList.Split(",");
+            foreach(var id in arr) {
+                var currentId = id;
             }
-            return View(model);
+            return Json(ItemList);
+            // List<ImageModel> images = model.ImageList;
+            // Console.WriteLine("select image post " + model.ImageList.Count);
+            // foreach(var img in model.ImageList)
+            // {
+                
+            //     Console.WriteLine("is selected: => " + img.IsSelected);
+            //     // if(img.IsSelected) 
+            //     // {
+            //     // model.AddToSelectedList(img);
+            //     // Console.WriteLine("======== inside of select image controller");
+            //     // }
+            //     // else 
+            //     // {
+            //     // //  Console.WriteLine("//////// not selected////////");
+            //     // }
+            // }
+            // return View( model);
         }
 
         public HomeController(ILogger<HomeController> logger)
