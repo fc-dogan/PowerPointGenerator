@@ -16,7 +16,6 @@ namespace PowerPointGenerator.Models
     public string searchString {get; set;}
     public List<string> SearchWords = new List<string> {};
     public List<ImageModel> ImageList = new List<ImageModel>{};
-    public List<ImageModel> selectedImages = new List<ImageModel>{};
 
     public FormModel(string title, string content)
     {
@@ -27,7 +26,6 @@ namespace PowerPointGenerator.Models
 
     public void TitleToSearcList(string title)
     {
-      // Title = title;
       char[] separators = new char[] { ' ', '.' };
       string[] subs = title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
       foreach (var sub in subs)
@@ -35,11 +33,7 @@ namespace PowerPointGenerator.Models
         SearchWords.Add(sub);
       }
       searchString = string.Join(", ",SearchWords);
-      Console.WriteLine(searchString);
-    }
-    public void AddToSelectedList(ImageModel img)
-    {
-      selectedImages.Add(img);
+      // Console.WriteLine(searchString);
     }
 
     public void PrintImages(Dictionary<string, object> response)

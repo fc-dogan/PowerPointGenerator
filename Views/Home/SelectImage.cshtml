@@ -16,29 +16,8 @@
         <a class="btn btn-success" onclick="SaveList()">Select Images</a>
       </li>
     </ul>
-      
-      
     }
-    @* @for(var i = 0; i < Model.ImageList.Count; i++)
-    {
-      @Html.CheckBoxFor(model => model.ImageList[i].IsSelected) *@
-      @* <input type="checkbox" name="@img.IsSelected" value="true" > *@
-        @* <img id="thumbnails" src="@Url.Content(Model.ImageList[i].ThumbnailUrl)" alt="image" /> *@
-    }
-    @* <input id="btnSubmit" type="submit" value="Submit"/> *@
 
-  }
-</div>
-  @* <div>
-    <ul>
-      @for(var i = 0; i < Model.ImageList.Count; i++)
-      {
-        <p>aaa</p>
-        Console.WriteLine(Model.ImageList[i].IsSelected);
-      <li>@Html.DisplayFor(model => model.ImageList[i].IsSelected)</li> 
-      }
-  </ul>
-</div> *@
 
 <script>
   var SaveList = function() {

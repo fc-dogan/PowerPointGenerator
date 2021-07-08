@@ -32,6 +32,7 @@ namespace PowerPointGenerator.Controllers
         [HttpPost] 
         public async Task<ActionResult> Index(string title, string content)
         {
+            List<ImageModel> images = new List<ImageModel>{};
             FormModel model = new FormModel(title, content);
             Console.WriteLine("title " + title);
             Console.WriteLine("model search strings " + model.searchString);
@@ -44,34 +45,14 @@ namespace PowerPointGenerator.Controllers
                 Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
             if(response.IsSuccessStatusCode)
             {
-                model.PrintImages(searchResponse);
+                // model.PrintImages(searchResponse);
+                images = model.ImagesFromAPI(searchResponse);
             }
-
-            return View();
+            // var imageList = model.Images();
+            ViewData["Images"] = images;
+           
+             return View("SelectImage", model);
         }
-
-        // [HttpPost]
-        // public async Task<ActionResult> Index(FormModel model)
-        // {
-        //     List<ImageModel> images = new List<ImageModel>{};
-        //     // model.TitleToSearcList();
-        //     string searchString = model.searchString;
-        //     var client = new HttpClient();
-        //     var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
-        //     queryString += MKT_PARAMETER + "en-us";
-        //     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
-        //     HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
-        //     var contentString = await response.Content.ReadAsStringAsync();
-        //         Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
-        //     if(response.IsSuccessStatusCode)
-        //     {
-        //         model.PrintImages(searchResponse);
-        //         images = model.ImagesFromAPI(searchResponse);
-        //     }
-        //     // var imageList = model.Images();
-        //     ViewData["Images"] = images;
-        //     return View("SelectImage", model);
-        // }
 
         [HttpGet]
         public IActionResult SelectImage()
@@ -112,29 +93,11 @@ namespace PowerPointGenerator.Controllers
                 Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, 
                 Microsoft.Office.Core.MsoTriState.msoTrue);
 
-
             string[] arr = ItemList.Split(",");
             foreach(var id in arr) {
                 var currentId = id;
             }
             return Json(ItemList);
-            // List<ImageModel> images = model.ImageList;
-            // Console.WriteLine("select image post " + model.ImageList.Count);
-            // foreach(var img in model.ImageList)
-            // {
-                
-            //     Console.WriteLine("is selected: => " + img.IsSelected);
-            //     // if(img.IsSelected) 
-            //     // {
-            //     // model.AddToSelectedList(img);
-            //     // Console.WriteLine("======== inside of select image controller");
-            //     // }
-            //     // else 
-            //     // {
-            //     // //  Console.WriteLine("//////// not selected////////");
-            //     // }
-            // }
-            // return View( model);
         }
 
         public HomeController(ILogger<HomeController> logger)
