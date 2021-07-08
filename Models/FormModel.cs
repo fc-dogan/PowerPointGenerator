@@ -11,18 +11,25 @@ namespace PowerPointGenerator.Models
 {
   public class FormModel
   {
-    public string Title { get; set; }
-    public string Content { get; set; }
+    public static string Title { get; set; }
+    public static string Content { get; set; }
     public string searchString {get; set;}
     public List<string> SearchWords = new List<string> {};
     public List<ImageModel> ImageList = new List<ImageModel>{};
     public List<ImageModel> selectedImages = new List<ImageModel>{};
 
-    public void TitleToSearcList()
+    public FormModel(string title, string content)
+    {
+      Title = title;
+      Content = content;
+      TitleToSearcList(title);
+    }
+
+    public void TitleToSearcList(string title)
     {
       // Title = title;
       char[] separators = new char[] { ' ', '.' };
-      string[] subs = Title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+      string[] subs = title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
       foreach (var sub in subs)
       {
         SearchWords.Add(sub);

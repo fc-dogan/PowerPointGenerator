@@ -10,6 +10,8 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Configuration;
+using Microsoft.Office.Interop.PowerPoint;
+
 
 namespace PowerPointGenerator.Controllers
 {
@@ -27,14 +29,14 @@ namespace PowerPointGenerator.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Index(FormModel model)
+        [HttpPost] 
+        public async Task<ActionResult> Index(string title, string content)
         {
-            List<ImageModel> images = new List<ImageModel>{};
-            model.TitleToSearcList();
-            string searchString = model.searchString;
+            FormModel model = new FormModel(title, content);
+            Console.WriteLine("title " + title);
+            Console.WriteLine("model search strings " + model.searchString);
             var client = new HttpClient();
-            var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
+            var queryString = QUERY_PARAMETER + Uri.EscapeDataString(model.searchString); 
             queryString += MKT_PARAMETER + "en-us";
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
             HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
@@ -43,12 +45,33 @@ namespace PowerPointGenerator.Controllers
             if(response.IsSuccessStatusCode)
             {
                 model.PrintImages(searchResponse);
-                images = model.ImagesFromAPI(searchResponse);
             }
-            // var imageList = model.Images();
-            ViewData["Images"] = images;
-            return View("SelectImage", model);
+
+            return View();
         }
+
+        // [HttpPost]
+        // public async Task<ActionResult> Index(FormModel model)
+        // {
+        //     List<ImageModel> images = new List<ImageModel>{};
+        //     // model.TitleToSearcList();
+        //     string searchString = model.searchString;
+        //     var client = new HttpClient();
+        //     var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
+        //     queryString += MKT_PARAMETER + "en-us";
+        //     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
+        //     HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
+        //     var contentString = await response.Content.ReadAsStringAsync();
+        //         Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
+        //     if(response.IsSuccessStatusCode)
+        //     {
+        //         model.PrintImages(searchResponse);
+        //         images = model.ImagesFromAPI(searchResponse);
+        //     }
+        //     // var imageList = model.Images();
+        //     ViewData["Images"] = images;
+        //     return View("SelectImage", model);
+        // }
 
         [HttpGet]
         public IActionResult SelectImage()
@@ -60,6 +83,36 @@ namespace PowerPointGenerator.Controllers
         {
             Console.WriteLine(ItemList);
             Console.WriteLine(dataList[0]);
+            string[] PictureFile = dataList;
+            Application pptApplication = new Application();
+            Presentation pptpresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
+            for (int i = 0; i < PictureFile.Length; i++)
+            {
+                Microsoft.Office.Interop.PowerPoint.Slides slides;
+                Microsoft.Office.Interop.PowerPoint._Slide slide;
+                Microsoft.Office.Interop.PowerPoint.TextRange objText;
+
+                Microsoft.Office.Interop.PowerPoint.CustomLayout custLayout = pptpresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutText];
+                slides = pptpresentation.Slides;
+                slide = slides.AddSlide(i + 1, custLayout);
+
+                objText = slide.Shapes[1].TextFrame.TextRange;
+                objText.Text = FormModel.Title + i ;
+                objText.Font.Name = "Arial";
+                objText.Font.Size = 32;
+
+                Microsoft.Office.Interop.PowerPoint.Shape shape = slide.Shapes[2];
+                slide.Shapes.AddPicture(PictureFile[i], 
+                    Microsoft.Office.Core.MsoTriState.msoFalse,
+                    Microsoft.Office.Core.MsoTriState.msoTrue,
+                    shape.Left, shape.Top, shape.Width, shape.Height);
+
+            }
+            pptpresentation.SaveAs(@"C:\powerpoint\newslide.pptx", 
+                Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, 
+                Microsoft.Office.Core.MsoTriState.msoTrue);
+
+
             string[] arr = ItemList.Split(",");
             foreach(var id in arr) {
                 var currentId = id;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
+    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
   },
   "projects": {
-    "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {
+    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "projectName": "PowerPointGenerator",
-        "projectPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "packagesPath": "C:\\Users\\fceyd\\.nuget\\packages\\",
-        "outputPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
+        "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

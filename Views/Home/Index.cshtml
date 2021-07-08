@@ -5,11 +5,28 @@
 @model FormModel
 
 <div class="text-center">
+  <form method="post">
+    <table>
+      <tr>
+        <td>Enter Title: </td>
+        <td><input type="text" name="title" /></td>
+      </tr>
+      <tr>
+        <td>Enter Content: </td>
+        <td><input type="text" name="content" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="Submit Form" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+@* 
     @{Html.BeginForm();
     {
         <div>
             Title: <br>
-            @Html.TextAreaFor(model => model.Title)
+            @Html.TextArea(FormModel.Title)
         </div>
         <div>
             Content: <br>
@@ -17,14 +34,14 @@
         </div>
         <div>
             <input type="submit" value="Create"/>
-        </div>
+        
     }
-    Html.EndForm();
+    Html.EndForm(); *@
 
-            
+@*             
         <div>
         Posted Title: <br>
-        @Html.DisplayFor(model => model.Title)
+        @Html.Display(model => model.Title)
         </div>
         <div>
             Posted Content: <br>
@@ -38,10 +55,10 @@
                 <li>@Html.DisplayFor(model => model.SearchWords[i])   </li>
             }
             </ol>             
-        </div>
+        </div> *@
 
-        <div>
+        @* <div>
             @Html.DisplayFor(model => model.ImageList.Count)
-        </div>
-    }
+        </div> *@
+    
 </div>
