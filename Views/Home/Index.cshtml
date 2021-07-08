@@ -2,63 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model FormModel
-
 <div class="text-center">
   <form method="post">
     <table>
       <tr>
-        <td>Enter Title: </td>
-        <td><textarea type="textarea" name="title" ></td>
+        <td><label for="title">Enter Title: </label></td>
+        <td><textarea id="title" type="textarea" name="title" ></textarea></td>
       </tr>
       <tr>
-        <td>Enter Content: </td>
-        <td><textarea type="text" name="content" ></td>
+        <td><label for="content">Enter Content: </label> </td>
+        <td><textarea id="content" type="text" name="content" ></textarea></td>
       </tr>
       <tr>
         <td colspan="2"><input type="submit" value="Submit Form" /></td>
       </tr>
     </table>
   </form>
-</div>
-@* 
-    @{Html.BeginForm();
-    {
-        <div>
-            Title: <br>
-            @Html.TextArea(FormModel.Title)
-        </div>
-        <div>
-            Content: <br>
-            @Html.TextAreaFor(model => model.Content)
-        </div>
-        <div>
-            <input type="submit" value="Create"/>
-        
-    }
-    Html.EndForm(); *@
-
-@*             
-        <div>
-        Posted Title: <br>
-        @Html.Display(model => model.Title)
-        </div>
-        <div>
-            Posted Content: <br>
-            @Html.DisplayFor(model => model.Content)
-        </div>
-        <div>
-            Split words: <br>
-            <ol>
-            @for (int i = 0; i < 3; i++)
-            {
-                <li>@Html.DisplayFor(model => model.SearchWords[i])   </li>
-            }
-            </ol>             
-        </div> *@
-
-        @* <div>
-            @Html.DisplayFor(model => model.ImageList.Count)
-        </div> *@
-    
 </div>
