@@ -63,6 +63,15 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Office.Interop.PowerPoint/15.0.4420.1017": {
+        "type": "package",
+        "compile": {
+          "lib/net20/Microsoft.Office.Interop.PowerPoint.dll": {}
+        },
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.PowerPoint.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.10": {
         "type": "package",
         "dependencies": {
@@ -117,6 +126,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "MicrosoftOfficeCore/15.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net35/Office.dll": {}
+        },
+        "runtime": {
+          "lib/net35/Office.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -1579,6 +1597,18 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Office.Interop.PowerPoint/15.0.4420.1017": {
+      "sha512": "8/C095a6ojqtWJzLFPYbHAjBM6C4koAcZ4NW50N1L7HHsFAAqN1RpEhE8tFry2fjJLMwz1hYOm2A4MS9DS7n2A==",
+      "type": "package",
+      "path": "microsoft.office.interop.powerpoint/15.0.4420.1017",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Microsoft.Office.Interop.PowerPoint.dll",
+        "microsoft.office.interop.powerpoint.15.0.4420.1017.nupkg.sha512",
+        "microsoft.office.interop.powerpoint.nuspec"
+      ]
+    },
     "Microsoft.Rest.ClientRuntime/2.3.10": {
       "sha512": "JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
       "type": "package",
@@ -1676,6 +1706,18 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MicrosoftOfficeCore/15.0.0": {
+      "sha512": "/KgYw8uvv0Ut8FPvyEa1XJ/TrLSRgvTv3JgC2IT0/8NwoICzbEJWfmfwsE6Dwi8WH0jVkTEO7zRvGvaKqUOhqQ==",
+      "type": "package",
+      "path": "microsoftofficecore/15.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Office.dll",
+        "microsoftofficecore.15.0.0.nupkg.sha512",
+        "microsoftofficecore.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -5250,6 +5292,8 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.Azure.CognitiveServices.Search.ImageSearch >= 1.2.0",
+      "Microsoft.Office.Interop.PowerPoint >= 15.0.4420.1017",
+      "MicrosoftOfficeCore >= 15.0.0",
       "System.Configuration.ConfigurationManager >= 5.0.0"
     ]
   },
@@ -5260,11 +5304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+      "projectUniqueName": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
       "projectName": "PowerPointGenerator",
-      "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+      "projectPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
       "packagesPath": "C:\\Users\\fceyd\\.nuget\\packages\\",
-      "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
+      "outputPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5298,6 +5342,14 @@
             "target": "Package",
             "version": "[1.2.0, )"
           },
+          "Microsoft.Office.Interop.PowerPoint": {
+            "target": "Package",
+            "version": "[15.0.4420.1017, )"
+          },
+          "MicrosoftOfficeCore": {
+            "target": "Package",
+            "version": "[15.0.0, )"
+          },
           "System.Configuration.ConfigurationManager": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -5324,5 +5376,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.PowerPoint 15.0.4420.1017' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.PowerPoint",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MicrosoftOfficeCore 15.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MicrosoftOfficeCore",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

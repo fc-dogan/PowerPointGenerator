@@ -26,6 +26,8 @@
       "PowerPointGenerator/1.0.0": {
         "dependencies": {
           "Microsoft.Azure.CognitiveServices.Search.ImageSearch": "1.2.0",
+          "Microsoft.Office.Interop.PowerPoint": "15.0.4420.1017",
+          "MicrosoftOfficeCore": "15.0.0",
           "System.Configuration.ConfigurationManager": "5.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -358,6 +360,17 @@
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Office.Interop.PowerPoint/15.0.4420.1017": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.PowerPoint.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4420.1017"
+          }
+        },
+        "compile": {
+          "lib/net20/Microsoft.Office.Interop.PowerPoint.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.10": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -399,6 +412,17 @@
       "Microsoft.Win32.SystemEvents/5.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
+      "MicrosoftOfficeCore/15.0.0": {
+        "runtime": {
+          "lib/net35/Office.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4420.1017"
+          }
+        },
+        "compile": {
+          "lib/net35/Office.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -2909,6 +2933,13 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
+    "Microsoft.Office.Interop.PowerPoint/15.0.4420.1017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8/C095a6ojqtWJzLFPYbHAjBM6C4koAcZ4NW50N1L7HHsFAAqN1RpEhE8tFry2fjJLMwz1hYOm2A4MS9DS7n2A==",
+      "path": "microsoft.office.interop.powerpoint/15.0.4420.1017",
+      "hashPath": "microsoft.office.interop.powerpoint.15.0.4420.1017.nupkg.sha512"
+    },
     "Microsoft.Rest.ClientRuntime/2.3.10": {
       "type": "package",
       "serviceable": true,
@@ -2936,6 +2967,13 @@
       "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
       "path": "microsoft.win32.systemevents/5.0.0",
       "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
+    },
+    "MicrosoftOfficeCore/15.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/KgYw8uvv0Ut8FPvyEa1XJ/TrLSRgvTv3JgC2IT0/8NwoICzbEJWfmfwsE6Dwi8WH0jVkTEO7zRvGvaKqUOhqQ==",
+      "path": "microsoftofficecore/15.0.0",
+      "hashPath": "microsoftofficecore.15.0.0.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",

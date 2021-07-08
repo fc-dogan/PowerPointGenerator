@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
+    "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {}
   },
   "projects": {
-    "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {
+    "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectUniqueName": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "projectName": "PowerPointGenerator",
-        "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+        "projectPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
         "packagesPath": "C:\\Users\\fceyd\\.nuget\\packages\\",
-        "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
+        "outputPath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -44,6 +44,14 @@
             "Microsoft.Azure.CognitiveServices.Search.ImageSearch": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "Microsoft.Office.Interop.PowerPoint": {
+              "target": "Package",
+              "version": "[15.0.4420.1017, )"
+            },
+            "MicrosoftOfficeCore": {
+              "target": "Package",
+              "version": "[15.0.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",

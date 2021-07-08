@@ -7,6 +7,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Search.ImageSearch" Version="1.2.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint" Version="15.0.4420.1017" />
+    <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
    </ItemGroup>
 
 </Project>

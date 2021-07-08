@@ -1,17 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "yozQ67QVEKgynNYOxiqGIJxt2g7c6UU3FEXNvoTbdQ7fP6B8avW7s++RRFywlrVEQOipcqbDCtjyvQcYgMC4pA==",
+  "dgSpecHash": "jiX52OScJq3eLw3IwllqLEt3AqRcVOrjFyoXjREBf3I4RrUdjemmB9rX9zssLLrMJ5y2iYqwK06+JoxnK0C+/Q==",
   "success": true,
-  "projectFilePath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+  "projectFilePath": "d:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.azure.cognitiveservices.search.imagesearch\\1.2.0\\microsoft.azure.cognitiveservices.search.imagesearch.1.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.office.interop.powerpoint\\15.0.4420.1017\\microsoft.office.interop.powerpoint.15.0.4420.1017.nupkg.sha512",
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.rest.clientruntime\\2.3.10\\microsoft.rest.clientruntime.2.3.10.nupkg.sha512",
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.rest.clientruntime.azure\\3.3.10\\microsoft.rest.clientruntime.azure.3.3.10.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\fceyd\\.nuget\\packages\\microsoftofficecore\\15.0.0\\microsoftofficecore.15.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -93,5 +95,26 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Office.Interop.PowerPoint 15.0.4420.1017' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Office.Interop.PowerPoint",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MicrosoftOfficeCore 15.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MicrosoftOfficeCore",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
