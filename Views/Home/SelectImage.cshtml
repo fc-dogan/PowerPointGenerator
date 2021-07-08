@@ -6,7 +6,7 @@
     <ul class="list-group" id="ItemList">
       @foreach (var item in (List<ImageModel>)ViewData["Images"])
       { 
-        <li class="list-group-item col-sm-4">
+        <li class="list-group-item col-md-4">
           <div class="checkbox">
             <input type="checkbox" id="Check_@item.Id" checked="@item.IsSelected" name="@item.ImageUrl">
             <img class="img-responsive" id="thumbnails_@item.Id" src="@Url.Content(item.ThumbnailUrl)" alt="image" />
