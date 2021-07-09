@@ -58,33 +58,49 @@ namespace PowerPointGenerator.Controllers
         [HttpPost]
         public JsonResult SelectImage(string ItemList, string[] dataList)
         {
-            Console.WriteLine(ItemList);
-            Console.WriteLine(dataList[0]);
+            // Console.WriteLine(ItemList);
+            // Console.WriteLine(dataList[0]);
             string[] PictureFile = dataList;
             Application pptApplication = new Application();
             Presentation pptpresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
-            for (int i = 0; i < PictureFile.Length; i++)
-            {
-                Microsoft.Office.Interop.PowerPoint.Slides slides;
-                Microsoft.Office.Interop.PowerPoint._Slide slide;
-                Microsoft.Office.Interop.PowerPoint.TextRange objText;
+           
+            Microsoft.Office.Interop.PowerPoint.Slides slides;
+            Microsoft.Office.Interop.PowerPoint._Slide slide;
+            Microsoft.Office.Interop.PowerPoint.TextRange objText;
 
-                Microsoft.Office.Interop.PowerPoint.CustomLayout custLayout = pptpresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutText];
-                slides = pptpresentation.Slides;
-                slide = slides.AddSlide(i + 1, custLayout);
+            Microsoft.Office.Interop.PowerPoint.CustomLayout custLayout = pptpresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutTable];
+            slides = pptpresentation.Slides;
+            slide = slides.AddSlide(1, custLayout);
+                
+            //add title
+            objText = slide.Shapes[1].TextFrame.TextRange;
+            objText.Text = FormModel.Title;
+            objText.Font.Name = "Arial";
+            objText.Font.Size = 32;
+//          Microsoft.Office.Interop.PowerPoint.Shape shape3 = slide.Shapes.AddShape()
+// )
+            objText = slide.Shapes[2].TextFrame.TextRange;
+            objText.Text = FormModel.Content;
+            objText.Font.Name = "Arial";
+            objText.Font.Size = 20;
+            
+            Microsoft.Office.Interop.PowerPoint.Shape shape = slide.Shapes[3];
+    
+            slide.Shapes.AddPicture(PictureFile[0], 
+                Microsoft.Office.Core.MsoTriState.msoFalse,
+                Microsoft.Office.Core.MsoTriState.msoTrue,
+                250, shape.Top+30 , 200, 200);
 
-                objText = slide.Shapes[1].TextFrame.TextRange;
-                objText.Text = FormModel.Title;
-                objText.Font.Name = "Arial";
-                objText.Font.Size = 32;
+            slide.Shapes.AddPicture(PictureFile[1], 
+                Microsoft.Office.Core.MsoTriState.msoFalse,
+                Microsoft.Office.Core.MsoTriState.msoTrue,
+                460, shape.Top+30, 200, 200);
 
-                Microsoft.Office.Interop.PowerPoint.Shape shape = slide.Shapes[2];
-                slide.Shapes.AddPicture(PictureFile[i], 
-                    Microsoft.Office.Core.MsoTriState.msoFalse,
-                    Microsoft.Office.Core.MsoTriState.msoTrue,
-                    shape.Left, shape.Top, shape.Width, shape.Height);
+            slide.Shapes.AddPicture(PictureFile[2], 
+                Microsoft.Office.Core.MsoTriState.msoFalse,
+                Microsoft.Office.Core.MsoTriState.msoTrue,
+                670, shape.Top+30, 200, 200);
 
-            }
             pptpresentation.SaveAs(@"C:\powerpoint\newslide.pptx", 
                 Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, 
                 Microsoft.Office.Core.MsoTriState.msoTrue);
