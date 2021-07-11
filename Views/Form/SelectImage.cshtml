@@ -25,7 +25,7 @@
     var arrList = [];
     var commaSeparatedIds = "";
     $("#ItemList li input[type=checkbox]").each(function(index, val) {
-      debugger
+      @* debugger *@
       var imgData = $(val).attr("name")
       var checkId = $(val).attr("Id");
       var arr = checkId.split("_");
@@ -37,7 +37,7 @@
       }
     })
     if(arrItem.length != 0){
-      debugger
+      @* debugger *@
       commaSeparatedIds = arrItem.toString();
       $.ajax({
         url:"/Form/CreatePowerPoint",

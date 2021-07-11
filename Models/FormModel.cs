@@ -23,7 +23,7 @@ namespace PowerPointGenerator.Models
       TitleToSearcList(Title);
       BoldedWordsToList(boldedWords);
     }
-    public FormModel( string content, string title)
+    public FormModel(string title, string content)
     {
       Title = title;
       Content = content;
@@ -33,6 +33,11 @@ namespace PowerPointGenerator.Models
       foreach (var item in boldedWords)
       {
           SearchWords.Add(item);
+      }
+      foreach (var item in SearchWords)
+      {
+          
+      Console.WriteLine("model search word: " + item);
       }
     }
     public void TitleToSearcList(string title)

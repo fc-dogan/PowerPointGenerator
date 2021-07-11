@@ -29,14 +29,6 @@ namespace PowerPointGenerator.Controllers
             ViewBag.content = FormModel.Content;
             return View();
         }
-        // [HttpGet("/Home/Edit")]
-        // public ActionResult ShowImages()
-        // {
-        //     return View();
-        // }
-
-        // [HttpPost]
-        // [Route]
         public async Task<ActionResult> SelectImage(string content, string[] boldedWords)
         {
             Console.WriteLine("Content===========>" + content);
