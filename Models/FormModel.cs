@@ -18,16 +18,20 @@ namespace PowerPointGenerator.Models
     public List<string> SearchWords = new List<string> {};
     public List<ImageModel> ImageList = new List<ImageModel>{};
 
-    public FormModel(string title, string content)
+    public FormModel( string content, string[] boldedWords)
     {
-      Title = title;
-      Content = content;
-      TitleToSearcList(title);
+      TitleToSearcList(Title);
+      BoldedWordsToList(boldedWords);
     }
-
+    public void BoldedWordsToList(string[] boldedWords)
+    {
+      foreach (var item in boldedWords)
+      {
+          SearchWords.Add(item);
+      }
+    }
     public void TitleToSearcList(string title)
     {
-      Console.WriteLine("model " + FormModel.Content);
       char[] separators = new char[] { ' ', '.' };
       string[] subs = title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
       foreach (var sub in subs)

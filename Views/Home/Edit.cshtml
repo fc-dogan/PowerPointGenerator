@@ -4,18 +4,42 @@
   @ViewBag.title
 </div>
 <h4>Content:</h4>
-<div class="content" contenteditable>
+<div id="content" contenteditable>
   @ViewBag.content
 </div>
-<a href="#" class="embolden">Bold</a>
+<a href="#" class="bolden">Bold</a>
+<a class="btn btn-success" onclick="Update()">Next => Select Images </a>
+@* @Html.ActionLink("Update","Edit", null, new { content = @ViewBag.content, title = ViewBag.title }, null) *@
 
-@Html.ActionLink("Update","Edit", null, new { content = @ViewBag.content, title = ViewBag.title }, null)
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-   $('.embolden').click(function(){
-   
-      document.execCommand('bold');
+  let boldedWords = [];
+   $('.bolden').click(function(){
+   document.execCommand('bold');
+    var selected = document.getElementById("content").innerHTML;
+    var highlighted = window.getSelection().toString();
+    boldedWords.push(highlighted);
+      console.log(highlighted);
+  ///burdan bold kelimeleri listeye topla ve listeyi controller a atip search list e ekle
 
+  //update linki buraya tasiyabilirsen listeyi controller/edit e tasiyabilirsin ve content ve title static oldugu icin controllerda direk cagirabilirsin
+  console.log(boldedWords);
   });
+
+  var Update = function(){
+    debugger
+    console.log($('#content').html());
+    $.ajax({
+        url: '/Home/Edit',
+        type: "POST",
+        data: { content: $('#content').html() , boldedWords: boldedWords},
+        success: function(response) {
+            alert('success');
+            console.log(response)
+            $('#content').html(result);
+        }
+
+    });
+  }
 </script>

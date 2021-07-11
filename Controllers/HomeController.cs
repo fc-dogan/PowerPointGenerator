@@ -36,12 +36,19 @@ namespace PowerPointGenerator.Controllers
             ViewBag.content = content;
             return View("Edit");
         }
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
 
-        public async Task<ActionResult> Edit(string title, string content)
+        [HttpPost]
+        public async Task<ActionResult> Edit(string content, string[] boldedWords)
         {
             Console.WriteLine("Content===========>" + content);
             List<ImageModel> images = new List<ImageModel>{};
-            FormModel model = new FormModel(title, content);
+            FormModel model = new FormModel(content, boldedWords);
+            Console.WriteLine("SearchList"+model.searchString);
             var client = new HttpClient();
             var queryString = QUERY_PARAMETER + Uri.EscapeDataString(model.searchString); 
             queryString += MKT_PARAMETER + "en-us";
