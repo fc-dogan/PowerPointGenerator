@@ -75,8 +75,9 @@ body {
   height: auto;
 }
 
-#fake_textarea {
-  /* width: 100%; */
+#content {
+  width: 80%;
   height: 200px;
-  border: 1px solid red;
+  border: 1px solid grey;
+  margin: 20px 0;
 }

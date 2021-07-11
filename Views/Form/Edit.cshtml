@@ -4,17 +4,18 @@
   @ViewBag.title
 </div>
 <h4>Content:</h4>
+<p><em>Please bold words you want to search images for:</em></p>
+<a href="#" id="bolden" class="btn btn-outline-dark">Bold</a><br>
 <div id="content" contenteditable>
   @ViewBag.content
 </div>
-<a href="#" class="bolden">Bold</a>
-<a class="btn btn-success" onclick="Update()" asp-action="SelectImage">Next => Select Images </a>
+<a class="btn btn-secondary" onclick="Update()" asp-action="SelectImage">Next => Select Images </a>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
   let boldedWords = [];
-   $('.bolden').click(function(){
+   $('#bolden').click(function(){
    document.execCommand('bold');
     var selected = document.getElementById("content").innerHTML;
     var highlighted = window.getSelection().toString();
