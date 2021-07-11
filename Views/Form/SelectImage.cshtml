@@ -14,7 +14,7 @@
         </li>
       }
       <li class="list-group-item">
-        <a class="btn btn-success" onclick="SaveList()">Create PowerPoint!</a>
+        <a class="btn btn-success" onclick="SaveList()" >Create PowerPoint!</a>
       </li>
     </ul>
 
@@ -25,7 +25,7 @@
     var arrList = [];
     var commaSeparatedIds = "";
     $("#ItemList li input[type=checkbox]").each(function(index, val) {
-      @* debugger *@
+      debugger
       var imgData = $(val).attr("name")
       var checkId = $(val).attr("Id");
       var arr = checkId.split("_");
@@ -37,11 +37,12 @@
       }
     })
     if(arrItem.length != 0){
-      @* debugger *@
+      debugger
       commaSeparatedIds = arrItem.toString();
       $.ajax({
-        url:"/Home/SelectImage",
+        url:"/Form/CreatePowerPoint",
         type: "POST",
+        dataType: 'json',
         data: { ItemList: commaSeparatedIds, dataList: arrList },
         success: function(response) {
           console.log(response);

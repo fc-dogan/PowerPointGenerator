@@ -8,7 +8,7 @@
   @ViewBag.content
 </div>
 <a href="#" class="bolden">Bold</a>
-<a class="btn btn-success" onclick="Update()">Next => Select Images </a>
+<a class="btn btn-success" onclick="Update()" asp-action="SelectImage">Next => Select Images </a>
 @* @Html.ActionLink("Update","Edit", null, new { content = @ViewBag.content, title = ViewBag.title }, null) *@
 
 
@@ -31,13 +31,14 @@
     debugger
     console.log($('#content').html());
     $.ajax({
-        url: '/Home/Edit',
+        url: "/Form/SelectImage",
         type: "POST",
+        @* dataType: 'json', *@
         data: { content: $('#content').html() , boldedWords: boldedWords},
         success: function(response) {
             alert('success');
-            console.log(response)
-            $('#content').html(result);
+            @* console.log("Response " +response) *@
+            @* $('#content').html(response); *@
         }
 
     });

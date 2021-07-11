@@ -23,6 +23,11 @@ namespace PowerPointGenerator.Models
       TitleToSearcList(Title);
       BoldedWordsToList(boldedWords);
     }
+    public FormModel( string content, string title)
+    {
+      Title = title;
+      Content = content;
+    }
     public void BoldedWordsToList(string[] boldedWords)
     {
       foreach (var item in boldedWords)
