@@ -1,0 +1,21 @@
+
+<div>
+  <h4>Title:</h4>
+  @ViewBag.title
+</div>
+<h4>Content:</h4>
+<div class="content" contenteditable>
+  @ViewBag.content
+</div>
+<a href="#" class="embolden">Bold</a>
+
+@Html.ActionLink("Update","Edit", null, new { content = @ViewBag.content, title = ViewBag.title }, null)
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+   $('.embolden').click(function(){
+   
+      document.execCommand('bold');
+
+  });
+</script>

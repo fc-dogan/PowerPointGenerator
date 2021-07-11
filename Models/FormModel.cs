@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -26,6 +27,7 @@ namespace PowerPointGenerator.Models
 
     public void TitleToSearcList(string title)
     {
+      Console.WriteLine("model " + FormModel.Content);
       char[] separators = new char[] { ' ', '.' };
       string[] subs = title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
       foreach (var sub in subs)
@@ -34,6 +36,35 @@ namespace PowerPointGenerator.Models
       }
       searchString = string.Join(", ",SearchWords);
       // Console.WriteLine(searchString);
+    }
+
+   private static List<string> ExtractFromBody(string body, string start, string end)
+    {
+      List<string> matched = new List<string>();
+
+      int indexStart = 0;
+      int indexEnd = 0;
+
+      bool exit = false;
+      while (!exit)
+      {
+          indexStart = body.IndexOf(start);
+
+          if (indexStart != -1)
+          {
+              indexEnd = indexStart + body.Substring(indexStart).IndexOf(end);
+
+              matched.Add(body.Substring(indexStart + start.Length, indexEnd - indexStart - start.Length));
+
+              body = body.Substring(indexEnd + end.Length);
+          }
+          else
+          {
+              exit = true;
+          }
+      }
+
+      return matched;
     }
 
     public void PrintImages(Dictionary<string, object> response)

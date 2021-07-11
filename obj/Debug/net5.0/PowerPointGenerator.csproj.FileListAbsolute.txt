@@ -51,3 +51,4 @@ D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Home\ShowImages.cshtml.g.cs
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\bin\Debug\net5.0\Microsoft.Office.Interop.PowerPoint.dll
 D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\bin\Debug\net5.0\Office.dll
+D:\Ceyda-2020-softwareWorld\projects\son hali\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Home\Edit.cshtml.g.cs

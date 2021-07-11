@@ -1,21 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 
-<div >
-  <form method="post">
-    <table>
-      <tr>
-        <td>Enter Title: </td>
-        <td><textarea id="title" type="textarea" name="title" ></textarea></td>
-      </tr>
-      <tr>
-        <td>Enter Content: </td>
-        <td><textarea id="content" type="text" name="content" ></textarea></td>
-      </tr>
-      <tr>
-        <td><input type="submit" value="Submit" /></td>
-      </tr>
-    </table>
-  </form>
-</div>
+@{Html.BeginForm();
+  {
+    <div>
+      Title: <br>
+      @Html.TextArea("title", FormModel.Title, new { })
+    </div>
+    <div>
+      Content: <br>
+      @Html.TextArea("content", FormModel.Content, new {})
+    </div>
+    <div>
+      <input type="submit" value="Create"/>
+    </div>
+  }
+}

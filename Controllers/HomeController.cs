@@ -24,14 +24,22 @@ namespace PowerPointGenerator.Controllers
         private const string MKT_PARAMETER = "&mkt="; 
         private static string _clientIdHeader = null;
 
-        public IActionResult Index()
+        public IActionResult Index(string content)
         {
+            FormModel.Content = content;
             return View();
         }
-
-        [HttpPost] 
-        public async Task<ActionResult> Index(string title, string content)
+        [HttpPost]
+         public IActionResult Index(string title, string content)
         {
+            ViewBag.title = title;
+            ViewBag.content = content;
+            return View("Edit");
+        }
+
+        public async Task<ActionResult> Edit(string title, string content)
+        {
+            Console.WriteLine("Content===========>" + content);
             List<ImageModel> images = new List<ImageModel>{};
             FormModel model = new FormModel(title, content);
             var client = new HttpClient();
@@ -40,7 +48,7 @@ namespace PowerPointGenerator.Controllers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
             HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
             var contentString = await response.Content.ReadAsStringAsync();
-                Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
+            Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
             if(response.IsSuccessStatusCode)
             {
                 images = model.ImagesFromAPI(searchResponse);
@@ -58,6 +66,8 @@ namespace PowerPointGenerator.Controllers
         [HttpPost]
         public JsonResult SelectImage(string ItemList, string[] dataList)
         {
+            Console.WriteLine("Line 62 title: " + FormModel.Title);
+            Console.WriteLine("Line 63 contnt: " + FormModel.Content);
             // Console.WriteLine(ItemList);
             // Console.WriteLine(dataList[0]);
             string[] PictureFile = dataList;
@@ -105,7 +115,7 @@ namespace PowerPointGenerator.Controllers
                 Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, 
                 Microsoft.Office.Core.MsoTriState.msoTrue);
 
-            return Json(ItemList);
+            return Json(dataList);
         }
 
         public HomeController(ILogger<HomeController> logger)
