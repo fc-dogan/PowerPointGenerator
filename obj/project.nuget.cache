@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QPvrViJxmvs6fmGPwiNlWzmFOAkN6Gdz978SxisFhLXuA/WSrmDYjSVufc5yVmw4pouShX0IL10E3YYoUh7N5Q==",
+  "dgSpecHash": "npWNsWQ1vVWreK1n8s3TWUM+eC6Y8aNXaVpgq+z9Y/QWfgAJr924ElRDoMBDZ05pUpGPFUP2WBmw3W5OHsRCnQ==",
   "success": true,
-  "projectFilePath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+  "projectFilePath": "D:\\Ceyda-2020-softwareWorld\\projects\\cloned PPT\\PowerPointGenerator\\PowerPointGenerator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fceyd\\.nuget\\packages\\microsoft.azure.cognitiveservices.search.imagesearch\\1.2.0\\microsoft.azure.cognitiveservices.search.imagesearch.1.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

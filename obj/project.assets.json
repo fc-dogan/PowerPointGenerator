@@ -5304,11 +5304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+      "projectUniqueName": "D:\\Ceyda-2020-softwareWorld\\projects\\cloned PPT\\PowerPointGenerator\\PowerPointGenerator.csproj",
       "projectName": "PowerPointGenerator",
-      "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\PowerPointGenerator.csproj",
+      "projectPath": "D:\\Ceyda-2020-softwareWorld\\projects\\cloned PPT\\PowerPointGenerator\\PowerPointGenerator.csproj",
       "packagesPath": "C:\\Users\\fceyd\\.nuget\\packages\\",
-      "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\son hali\\PowerPointGenerator\\obj\\",
+      "outputPath": "D:\\Ceyda-2020-softwareWorld\\projects\\cloned PPT\\PowerPointGenerator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
