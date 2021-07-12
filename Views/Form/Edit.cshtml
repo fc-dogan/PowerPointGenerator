@@ -25,16 +25,15 @@
   });
 
   var Update = function(){
-    debugger
+    @* debugger *@
     console.log($('#content').html());
     $.ajax({
         url: "@Url.Action("SelectImage")",
         type: "POST",
         data: { content: $('#content').html() , boldedWords: boldedWords},
         success: function(response) {
-            alert('success');
+            @* alert('success'); *@
             window.location.href = '@Url.Action("SelectImage")';
-            @* $('#content').html(response); *@
         }
 
     });

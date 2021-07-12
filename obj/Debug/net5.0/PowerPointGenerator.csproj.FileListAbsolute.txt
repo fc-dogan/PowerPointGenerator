@@ -90,7 +90,6 @@ D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\ne
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\PowerPointGenerator.RazorCoreGenerate.cache
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Form\Edit.cshtml.g.cs
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Form\SelectImage.cshtml.g.cs
-D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Form\ShowImages.cshtml.g.cs
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Ceyda-2020-softwareWorld\projects\cloned PPT\PowerPointGenerator\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
