@@ -1,15 +1,18 @@
 
 <div>
-  <h4>Title:</h4>
-  @ViewBag.title
-</div>
-<h4>Content:</h4>
-<p><em>Please bold words you want to search images for:</em></p>
-<a href="#" id="bolden" class="btn btn-outline-dark">Bold</a><br>
-<div id="content" contenteditable>
-  @ViewBag.content
-</div>
+   <h5>Title:</h5>
+  <div id="title">
+    @ViewBag.title
+  </div>
+  <h5>Content:</h5>
+  <p><em>Please bold words you want to search images for:</em></p>
+  <a href="#" id="bolden" class="btn btn-outline-dark">Bold</a><br>
+  <div id="content" contenteditable>
+    @ViewBag.content
+  </div>
 <a class="btn btn-secondary" onclick="Update()" >Next => Select Images </a>
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -20,13 +23,10 @@
     var selected = document.getElementById("content").innerHTML;
     var highlighted = window.getSelection().toString();
     boldedWords.push(highlighted);
-
-     console.log(boldedWords);
   });
 
   var Update = function(){
     @* debugger *@
-    console.log($('#content').html());
     $.ajax({
         url: "@Url.Action("SelectImage")",
         type: "POST",

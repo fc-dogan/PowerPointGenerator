@@ -3,16 +3,15 @@
 @{Html.BeginForm();
   {
     <div>
-      Title: <br>
+      <h4>Title:</h4>
       @Html.TextArea("title", FormModel.Title, new { })
     </div>
     <div>
-      Content: <br>
+      <h4>Content: </h4>
       @Html.TextArea("content", FormModel.Content, new {})
     </div>
     <div>
-      <input type="submit" value="Create"/>
-      @* <a asp-controller="Form" asp-action="Edit">Edit</a> *@
+      <input class="btn btn-secondary" type="submit" value="Next"/>
     </div>
   }
 }

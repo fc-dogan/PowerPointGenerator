@@ -32,13 +32,10 @@ namespace PowerPointGenerator.Controllers
         public async Task<ActionResult> SelectImage(string content, string[] boldedWords)
         {
             List<ImageModel> images = new List<ImageModel>{};
-    
-           FormModel.SetTheList(content, boldedWords);
+            FormModel.SetTheList(content, boldedWords);
             var searchString = FormModel.searchString;
             var client = new HttpClient();
             var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
-            Console.WriteLine("controller search string ===> " + searchString);
-
             queryString += MKT_PARAMETER + "en-us";
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
             HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
