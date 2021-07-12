@@ -31,12 +31,14 @@ namespace PowerPointGenerator.Controllers
         }
         public async Task<ActionResult> SelectImage(string content, string[] boldedWords)
         {
-            Console.WriteLine("Content===========>" + content);
             List<ImageModel> images = new List<ImageModel>{};
-            FormModel model = new FormModel(content, boldedWords);
-            Console.WriteLine("SearchList"+model.searchString);
+
+           FormModel.SetTheList(content, boldedWords);
+            var searchString = FormModel.searchString;
             var client = new HttpClient();
-            var queryString = QUERY_PARAMETER + Uri.EscapeDataString(model.searchString); 
+            var queryString = QUERY_PARAMETER + Uri.EscapeDataString(searchString); 
+            Console.WriteLine("controller search string ===> " + searchString);
+
             queryString += MKT_PARAMETER + "en-us";
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _key);
             HttpResponseMessage response = await client.GetAsync(_baseUri + queryString);
@@ -44,8 +46,7 @@ namespace PowerPointGenerator.Controllers
             Dictionary<string, object> searchResponse = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString);
             if(response.IsSuccessStatusCode)
             {
-                images = model.ImagesFromAPI(searchResponse);
-                Console.WriteLine("Success");
+                images = FormModel.ImagesFromAPI(searchResponse);
             }
             ViewData["Images"] = images;
            

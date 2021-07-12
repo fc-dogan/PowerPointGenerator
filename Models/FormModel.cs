@@ -14,21 +14,28 @@ namespace PowerPointGenerator.Models
   {
     public static string Title { get; set; }
     public static string Content { get; set; }
-    public string searchString {get; set;}
-    public List<string> SearchWords = new List<string> {};
-    public List<ImageModel> ImageList = new List<ImageModel>{};
+    public static string searchString {get; set;}
+    public static List<string> SearchWords = new List<string> {};
+    public static List<ImageModel> ImageList = new List<ImageModel>{};
 
-    public FormModel( string content, string[] boldedWords)
+    public static void SetTheList(string content, string[] boldedWords)
     {
       TitleToSearcList(Title);
       BoldedWordsToList(boldedWords);
+      SearchListToString();
     }
+    // public FormModel( string content, string[] boldedWords)
+    // {
+    //   TitleToSearcList(Title);
+    //   BoldedWordsToList(boldedWords);
+    //   SearchListToString();
+    // }
     public FormModel(string title, string content)
     {
       Title = title;
       Content = content;
     }
-    public void BoldedWordsToList(string[] boldedWords)
+    public static void BoldedWordsToList(string[] boldedWords)
     {
       foreach (var item in boldedWords)
       {
@@ -40,7 +47,7 @@ namespace PowerPointGenerator.Models
       Console.WriteLine("model search word: " + item);
       }
     }
-    public void TitleToSearcList(string title)
+    public static void TitleToSearcList(string title)
     {
       char[] separators = new char[] { ' ', '.' };
       string[] subs = title.Split(separators, StringSplitOptions.RemoveEmptyEntries);
@@ -48,8 +55,12 @@ namespace PowerPointGenerator.Models
       {
         SearchWords.Add(sub);
       }
+    }
+
+    public static void SearchListToString()
+    {
       searchString = string.Join(", ",SearchWords);
-      // Console.WriteLine(searchString);
+      Console.WriteLine("search String ===>" + searchString);
     }
 
    private static List<string> ExtractFromBody(string body, string start, string end)
@@ -96,7 +107,7 @@ namespace PowerPointGenerator.Models
             }
         }
 
-      public List<ImageModel> ImagesFromAPI(Dictionary<string, object> response)
+      public static List<ImageModel> ImagesFromAPI(Dictionary<string, object> response)
         {
           var images = response["value"] as Newtonsoft.Json.Linq.JToken;
           foreach (Newtonsoft.Json.Linq.JToken image in images)

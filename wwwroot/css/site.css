@@ -77,7 +77,13 @@ body {
 
 #content {
   width: 80%;
-  height: 200px;
+  height: 150px;
   border: 1px solid grey;
-  margin: 20px 0;
+  margin: 10px 0;
+}
+#title {
+  width: 80%;
+  height: 75px;
+  border: 1px solid grey;
+  margin: 10px 0;
 }
