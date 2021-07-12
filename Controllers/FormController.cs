@@ -32,7 +32,7 @@ namespace PowerPointGenerator.Controllers
         public async Task<ActionResult> SelectImage(string content, string[] boldedWords)
         {
             List<ImageModel> images = new List<ImageModel>{};
-
+    
            FormModel.SetTheList(content, boldedWords);
             var searchString = FormModel.searchString;
             var client = new HttpClient();
@@ -54,10 +54,6 @@ namespace PowerPointGenerator.Controllers
         }
         public JsonResult CreatePowerPoint(string ItemList, string[] dataList)
         {
-            Console.WriteLine("Line 62 title: " + FormModel.Title);
-            Console.WriteLine("Line 63 contnt: " + FormModel.Content);
-            Console.WriteLine(ItemList);
-            Console.WriteLine(dataList[0]);
             string[] PictureFile = dataList;
             Application pptApplication = new Application();
             Presentation pptpresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
@@ -65,6 +61,7 @@ namespace PowerPointGenerator.Controllers
             Microsoft.Office.Interop.PowerPoint.Slides slides;
             Microsoft.Office.Interop.PowerPoint._Slide slide;
             Microsoft.Office.Interop.PowerPoint.TextRange objText;
+            Microsoft.Office.Interop.PowerPoint.TextRange contentText;
 
             Microsoft.Office.Interop.PowerPoint.CustomLayout custLayout = pptpresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutText];
             slides = pptpresentation.Slides;
@@ -75,12 +72,11 @@ namespace PowerPointGenerator.Controllers
             objText.Text = FormModel.Title;
             objText.Font.Name = "Arial";
             objText.Font.Size = 32;
-         
 
-            objText = slide.Shapes[2].TextFrame.TextRange;
-            objText.Text = FormModel.Content;
-            objText.Font.Name = "Arial";
-            objText.Font.Size = 20;
+            contentText = slide.Shapes[2].TextFrame.TextRange;
+            contentText.Text = FormModel.Content;
+            contentText.Font.Name = "Arial";
+            contentText.Font.Size = 20;
             
             Microsoft.Office.Interop.PowerPoint.Shape shape = slide.Shapes[2];
     

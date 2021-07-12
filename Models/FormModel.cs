@@ -24,12 +24,6 @@ namespace PowerPointGenerator.Models
       BoldedWordsToList(boldedWords);
       SearchListToString();
     }
-    // public FormModel( string content, string[] boldedWords)
-    // {
-    //   TitleToSearcList(Title);
-    //   BoldedWordsToList(boldedWords);
-    //   SearchListToString();
-    // }
     public FormModel(string title, string content)
     {
       Title = title;
