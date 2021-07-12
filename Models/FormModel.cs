@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -17,13 +18,28 @@ namespace PowerPointGenerator.Models
     public List<string> SearchWords = new List<string> {};
     public List<ImageModel> ImageList = new List<ImageModel>{};
 
+    public FormModel( string content, string[] boldedWords)
+    {
+      TitleToSearcList(Title);
+      BoldedWordsToList(boldedWords);
+    }
     public FormModel(string title, string content)
     {
       Title = title;
       Content = content;
-      TitleToSearcList(title);
     }
-
+    public void BoldedWordsToList(string[] boldedWords)
+    {
+      foreach (var item in boldedWords)
+      {
+          SearchWords.Add(item);
+      }
+      foreach (var item in SearchWords)
+      {
+          
+      Console.WriteLine("model search word: " + item);
+      }
+    }
     public void TitleToSearcList(string title)
     {
       char[] separators = new char[] { ' ', '.' };
@@ -34,6 +50,35 @@ namespace PowerPointGenerator.Models
       }
       searchString = string.Join(", ",SearchWords);
       // Console.WriteLine(searchString);
+    }
+
+   private static List<string> ExtractFromBody(string body, string start, string end)
+    {
+      List<string> matched = new List<string>();
+
+      int indexStart = 0;
+      int indexEnd = 0;
+
+      bool exit = false;
+      while (!exit)
+      {
+          indexStart = body.IndexOf(start);
+
+          if (indexStart != -1)
+          {
+              indexEnd = indexStart + body.Substring(indexStart).IndexOf(end);
+
+              matched.Add(body.Substring(indexStart + start.Length, indexEnd - indexStart - start.Length));
+
+              body = body.Substring(indexEnd + end.Length);
+          }
+          else
+          {
+              exit = true;
+          }
+      }
+
+      return matched;
     }
 
     public void PrintImages(Dictionary<string, object> response)

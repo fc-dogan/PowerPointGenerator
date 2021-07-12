@@ -1,0 +1,42 @@
+
+<div>
+  <h4>Title:</h4>
+  @ViewBag.title
+</div>
+<h4>Content:</h4>
+<p><em>Please bold words you want to search images for:</em></p>
+<a href="#" id="bolden" class="btn btn-outline-dark">Bold</a><br>
+<div id="content" contenteditable>
+  @ViewBag.content
+</div>
+<a class="btn btn-secondary" onclick="Update()" asp-action="SelectImage">Next => Select Images </a>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  let boldedWords = [];
+   $('#bolden').click(function(){
+   document.execCommand('bold');
+    var selected = document.getElementById("content").innerHTML;
+    var highlighted = window.getSelection().toString();
+    boldedWords.push(highlighted);
+
+     console.log(boldedWords);
+  });
+
+  var Update = function(){
+    @* debugger *@
+    console.log($('#content').html());
+    $.ajax({
+        url: "/Form/SelectImage",
+        type: "POST",
+        data: { content: $('#content').html() , boldedWords: boldedWords},
+        success: function(response) {
+            @* alert('success'); *@
+            @* console.log("Response " +response) *@
+            @* $('#content').html(response); *@
+        }
+
+    });
+  }
+</script>

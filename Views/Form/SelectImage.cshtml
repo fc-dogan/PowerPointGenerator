@@ -14,7 +14,7 @@
         </li>
       }
       <li class="list-group-item">
-        <a class="btn btn-success" onclick="SaveList()">Create PowerPoint!</a>
+        <a class="btn btn-success" onclick="SaveList()" >Create PowerPoint!</a>
       </li>
     </ul>
 
@@ -40,8 +40,9 @@
       @* debugger *@
       commaSeparatedIds = arrItem.toString();
       $.ajax({
-        url:"/Home/SelectImage",
+        url:"/Form/CreatePowerPoint",
         type: "POST",
+        dataType: 'json',
         data: { ItemList: commaSeparatedIds, dataList: arrList },
         success: function(response) {
           console.log(response);
